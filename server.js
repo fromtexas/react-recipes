@@ -11,6 +11,7 @@ const User = require("./models/User");
 const { graphiqlExpress, graphqlExpress } = require("apollo-server-express");
 const { makeExecutableSchema } = require("graphql-tools");
 
+// mongo schemas
 const { typeDefs } = require("./schema");
 const { resolvers } = require("./resolvers");
 
@@ -27,6 +28,7 @@ mongoose
   .catch(err => console.error(err));
 
 app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
+
 app.use(
   "/graphql",
   graphqlExpress({
